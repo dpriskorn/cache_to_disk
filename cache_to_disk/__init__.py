@@ -237,7 +237,7 @@ def cache_exists(cache_metadata, function_name, *args, **kwargs):
     new_caches_for_function = []
     cache_changed = False
     for function_cache in cache_metadata[function_name]:
-        if function_cache['args'] == str(args) and (
+        if function_cache['args'] == str(args) or (
                 function_cache['kwargs'] == str(kwargs)):
             max_age_days = int(function_cache['max_age_days'])
             file_name = join_path(DISK_CACHE_DIR, function_cache['file_name'])
